@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estilo.css">
-
-    <title> Registrar Usuário</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickaê Registro</title>
+  <link rel="stylesheet" href="./css/menuregistrar.css">
 </head>
-<body class="indexaum">
-    <div class="Registrar Usuário">
-        <form class="login" action= ""method="post">
-        <h1>Registrar Usuário</h1>
-        <b>Email:</b> <br>
-        <input type="text" name="email" class="quadradinho"> <br><br>
-       <b>Senha:</b> <br>
-        <input type="password" name="senha"class="quadradinho"> <br><br>
-
-        <input class="button" type="submit" value="Registrar">
-    </div>
+<body>
+  <div class="registro-container">
+    <h2>Clickaê Registro</h2>
+    <form>
+      <input type="text" placeholder="Nome" required>
+      <input type="text" placeholder="CPF" required>
+      <input type="text" placeholder="Telefone" required>
+      <input type="text" placeholder="Endereço" required>
+      <input type="text" placeholder="Tipo ex:. Cliente ou Vendedor" required>
+      <button type="submit"><a href="menuregistrar.php" ></a>Criar</button>
+      
+    </form>
+  </div>
 </body>
 </html>

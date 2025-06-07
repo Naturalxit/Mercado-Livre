@@ -1,0 +1,70 @@
+
+/* Fundo geral */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #bfd8d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Container de login */
+.login-container {
+  background-color: #eeeeee;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Inputs */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Botão */
+.login-container button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #333;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #222;
+}
+
+/* Link criar conta */
+.criar-conta {
+  display: block;
+  margin-top: 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.criar-conta:hover {
+  text-decoration: underline;
+}
