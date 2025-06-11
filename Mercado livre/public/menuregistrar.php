@@ -11,6 +11,8 @@
     <h2>Clickaê Registro</h2>
     <form>
       <input type="text" placeholder="Nome" required>
+      <input type="text" placeholder="Email" required>
+      <input type="text" placeholder="Senha" required>
       <input type="text" placeholder="CPF" required>
       <input type="text" placeholder="Telefone" required>
       <input type="text" placeholder="Endereço" required>

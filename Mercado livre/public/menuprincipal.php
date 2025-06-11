@@ -24,8 +24,8 @@
       <div class="acoes">
         <div class="frete">Frete Grátis</div>
         <div class="conta">
-          <i class="fa-solid fa-user"></i>
-          <span><a href="#">Criar Conta</a> | <a href="#">Entrar</a></span>
+        <span><a href="perfil.php"><i class="fa-solid fa-user"></i></span>
+          <span><a href="menuregistrar.php">Criar Conta</a> | <a href="index.php">Entrar</a></span>
         </div>
 
 
