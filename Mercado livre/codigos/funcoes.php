@@ -1,7 +1,20 @@
 <php?
 function logarUsuario() {};
 
-function cadastrarUsuario() {};
+function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha) {
+    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sssssss', $nome, $cpf, $endereco, $telefone, $email, $senha);
+    
+    mysqli_stmt_execute($comando);
+    
+    $idcliente = mysqli_stmt_insert_id($comando);
+
+    mysqli_stmt_close($comando);
+
+    return $idcliente;
+ };
 
 function editarUsuario() {};
  
