@@ -1,6 +1,4 @@
-<php?
-function logarUsuario() {};
-
+<?php
 function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha) {
     $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -16,8 +14,10 @@ function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $sen
     return $idcliente;
  };
 
+
 function editarUsuario() {};
  
+
 function deletarUsuario() {};
 
 function listarUsuario() {};
@@ -114,8 +114,7 @@ function listarProdutos($conexao) {
     return $lista_produtos;
 };
 
-
-public function salvarProduto ($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria) {
+function salvarProduto ($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria) {
     $sql = "INSERT INTO tb_produto ($nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare ($conexao, $sql);
 
@@ -129,7 +128,6 @@ public function salvarProduto ($conexao, $nome, $tipo, $estado, $valor, $estoque
     return $idproduto;
 };
 
-$teste = salvarProduto("","");
 
 function pesquisarProduto() {};
 

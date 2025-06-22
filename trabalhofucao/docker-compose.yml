@@ -5,7 +5,7 @@ services:
     container_name: "apache_php"
     image: php:8.1.16-apache
     volumes:
-      - ./:/var/www/html/
+      - ./codigo/:/var/www/html/
     ports:
       - 81:80
   
@@ -14,7 +14,7 @@ services:
     container_name: "mariadb-server"
     restart: always
     volumes:
-      - ../documentacao/banco.sql:/docker-entrypoint-initdb.d/banco.sql
+      - ./banco.sql:/docker-entrypoint-initdb.d/banco.sql
     environment:
       - MARIADB_USER=root
       - MARIADB_ROOT_PASSWORD=123

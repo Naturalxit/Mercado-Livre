@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickaê Registro</title>
+  <link rel="stylesheet" href="./css/menuregistrar.css">
+</head>
+<body>
+  <div class="registro-container">
+    <h2>Clickaê Registro</h2>
+    <form action="salvarUsuario.php" method="post">
+      <input type="text" name="nome" placeholder="Nome" >
+      <input type="text" name="cpf" placeholder="CPF" >
+      <input type="text" name="endereco" placeholder="Endereço" >
+      <input type="text" name="telefone" placeholder="Telefone">
+      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="senha" placeholder="Senha" >
+      <input type="text" name="tipo" placeholder="Tipo ex:. Cliente ou Vendedor" >
+      <button type="submit"><a href="index.php" ></a>Criar</button>
+      
+    </form>
+  </div>
+</body>
+</html>
