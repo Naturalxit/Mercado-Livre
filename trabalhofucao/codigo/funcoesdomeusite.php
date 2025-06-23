@@ -5,7 +5,17 @@
 
 //20 fuÇões
 
-
+//tirei: 
+// verificar logado
+// salvarVendedor
+// mostrarMenu
+//cancelarPagamento  mudei deletar
+//editarCarrinho
+//salvarEntrega
+//cadastrarDevolucao
+//salvarProduto  e a mesma coisa de cadastrar produto
+//salvar venda e a mesma coisa de cadastrar pedido
+//salvar pagamento e a mesma coisa de cadastrar pagamento
 
 
 //// // // // // // // // Cliente  // // // // // // // // // // // // // //  
