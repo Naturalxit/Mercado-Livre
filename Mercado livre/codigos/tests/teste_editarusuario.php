@@ -1,6 +1,6 @@
 <?php
 
-require_once "../conexao.php";
+require_once "../../controle/conexao.php";
 require_once "../funcoes.php";
 
 $idusuario = 1;

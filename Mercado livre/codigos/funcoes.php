@@ -1,9 +1,9 @@
 <?php
 function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha) {
-    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, telefone, email, senha) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssssss', $nome, $cpf, $endereco, $telefone, $email, $senha);
+    mysqli_stmt_bind_param($comando, 'ssssss', $nome, $cpf, $endereco, $telefone, $email, $senha);
     
     mysqli_stmt_execute($comando);
     
