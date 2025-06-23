@@ -19,8 +19,8 @@
 
 
 //// // // // // // // // Cliente  // // // // // // // // // // // // // //  
-function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha) {//nao sei quem vez
-    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $foto) {//lorena testar
+    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, telefone, foto) VALUES (?, ?, ?, ?, ?, ?)";//tirei o email e senha pq n tabela cliente
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sssssss', $nome, $cpf, $endereco, $telefone, $email, $senha);
@@ -175,7 +175,7 @@ function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descr
     return $funcionou;
 };
 
-function deletarProduto($conexao, $idProduto) {//nao sei quem vez testar
+function deletarProduto($conexao, $idProduto) {//lorena testar
     $sql = "DELETE FROM tb_roduto WHERE idProduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
