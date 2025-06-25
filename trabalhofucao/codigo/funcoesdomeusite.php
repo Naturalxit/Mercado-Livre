@@ -18,8 +18,9 @@
 //salvar pagamento e a mesma coisa de cadastrar pagamento
 
 
-//// // // // // // // // Cliente  // // // // // // // // // // // // // //  
-function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $foto) {//lorena testar
+//// // // // // // // // Cliente  // // // // // // // // // // // // // // 
+ 
+function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $foto) {
     $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, telefone, foto) VALUES (?, ?, ?, ?, ?, ?)";//tirei o email e senha pq n tabela cliente
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -39,7 +40,7 @@ function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $foto) {//lo
 
 //// // // // // // // // Usuario  // // // // // // // // // // // // // //  
 
-function editarUsuario($conexao, $nome, $email, $senha, $tipo) {//Roger testar
+function editarUsuario($conexao, $nome, $email, $senha, $tipo) {
     $sql = "UPDATE tb_usuario SET nome=?, email=?, senha=?, tipo=?, WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -55,7 +56,7 @@ function editarUsuario($conexao, $nome, $email, $senha, $tipo) {//Roger testar
     return $funcionou;
 };
 
-function deletarUsuario($conexao,$idusuario) { //Roger testar
+function deletarUsuario($conexao,$idusuario) {
     $sql = "DELETE FROM tb_usuario WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -66,7 +67,7 @@ function deletarUsuario($conexao,$idusuario) { //Roger testar
     
     return $funcionou; //true ou false
 };
-function listarUsuario($conexao) { //Roger testar
+function listarUsuario($conexao) {
     $sql = "SELECT * FROM tb_usuario";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -82,7 +83,7 @@ function listarUsuario($conexao) { //Roger testar
     return $lista_usuario;
 };
 
-function salvarUsuario($conexao, $nome, $email, $senha, $tipo) {//Roger testar
+function salvarUsuario($conexao, $nome, $email, $senha, $tipo) {
     $sql = "INSERT INTO tb_usuario (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -101,7 +102,8 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo) {//Roger testar
 
 
 //// // // // // // // // Vendedor  // // // // // // // // // // // // // //  
-function editarVendedor($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha, $tipo, $pedido_idpedido, $idCliente) {//nao sei quem vez
+
+function editarVendedor($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha, $tipo, $pedido_idpedido, $idCliente) {
     $sql = "UPDATE Produto SET nome=?, cpf=?, endereco=?, telefone=?, email=?, senha=?, tipo=?, pedido_idpedido=? WHERE idCliente=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -114,7 +116,7 @@ function editarVendedor($conexao, $nome, $cpf, $endereco, $telefone, $email, $se
     return $funcionou;
 };
 
-function deletarVendedor($conexao, $idCliente) {//nao sei quem vez arrumar criar a tabela no banco
+function deletarVendedor($conexao, $idCliente) {
     $sql = "DELETE FROM Vendedor WHERE idCliente = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -126,7 +128,7 @@ function deletarVendedor($conexao, $idCliente) {//nao sei quem vez arrumar criar
     return $funcionou; //true ou false
 };
 
-function listarVendedor($conexao) {//nao sei quem vez arrumar criar a tabela no banco
+function listarVendedor($conexao) {
     $sql = "SELECT * FROM Cliente";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -146,7 +148,8 @@ function listarVendedor($conexao) {//nao sei quem vez arrumar criar a tabela no 
 
 
 //// // // // // // // // Produto  // // // // // // // // // // // // // //  
-function cadastrarProduto($conexao, $nome, $tipo, $estado, $valor ,$estoque ,$descricao,$status,$categoria) {//Roger testar
+
+function cadastrarProduto($conexao, $nome, $tipo, $estado, $valor ,$estoque ,$descricao,$status,$categoria) {
     $sql = "INSERT INTO tb_produto (nome, tipo, estado, valor ,estoque ,descricao, status,categoria) VALUES (?, ?, ?, ?,?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -162,7 +165,7 @@ function cadastrarProduto($conexao, $nome, $tipo, $estado, $valor ,$estoque ,$de
     return $idproduto;
 };
 
-function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria, $idProduto) {//nao sei quem vez testar
+function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria, $idProduto) {
     $sql = "UPDATE Produto SET nome=?, tipo=?, estado=?, valor=?, estoque=?, descricao=?, status=?, categoria=? WHERE idProduto=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -175,7 +178,7 @@ function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descr
     return $funcionou;
 };
 
-function deletarProduto($conexao, $idProduto) {//lorena testar
+function deletarProduto($conexao, $idProduto) {
     $sql = "DELETE FROM tb_roduto WHERE idProduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -187,7 +190,7 @@ function deletarProduto($conexao, $idProduto) {//lorena testar
     return $funcionou; //true ou false
 };
 
-function listarProdutos($conexao) {//nao sei quem vez testar
+function listarProdutos($conexao) {
     $sql = "SELECT * FROM tb_produto";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -203,7 +206,7 @@ function listarProdutos($conexao) {//nao sei quem vez testar
     return $lista_produto;
 };
 
-function pesquisarProduto($conexao, $idproduto) {//Roger testar
+function pesquisarProduto($conexao, $idproduto) {
     $sql = "SELECT * FROM tb_produto WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -222,11 +225,12 @@ function pesquisarProduto($conexao, $idproduto) {//Roger testar
 
 
 //// // // // // // // // Pedido  // // // // // // // // // // // // // //  
-function cadastrarpedido($conexao, $valor_total, $data) {//Roger testar
+
+function cadastrarPedido($conexao, $valor_total, $data) {
     $sql = "INSERT INTO tb_pedido (valor_total, data) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ss', $valor_total, $data);
+    mysqli_stmt_bind_param($comando, 'ds', $valor_total, $data);
     
     mysqli_stmt_execute($comando);
     
@@ -238,7 +242,7 @@ function cadastrarpedido($conexao, $valor_total, $data) {//Roger testar
     return $idpedido;
 };
 
-function editarVenda($conexao, $valor, $data, $idpedido) {//Roger testar
+function editarVenda($conexao, $valor, $data, $idpedido) {
     $sql = "UPDATE tb_pedido SET valor=?, data=?,WHERE idpedido=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -251,7 +255,7 @@ function editarVenda($conexao, $valor, $data, $idpedido) {//Roger testar
     return $funcionou;
 };
 
-function deletarVenda($conexao, $idpedido) {////Roger testar
+function deletarVenda($conexao, $idpedido) {
     $sql = "DELETE FROM tb_pedido WHERE idpedido = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -263,7 +267,7 @@ function deletarVenda($conexao, $idpedido) {////Roger testar
     return $funcionou; //true ou false
 };
 
-function listarVenda($conexao) { //Roger testar
+function listarVenda($conexao) {
     $sql = "SELECT * FROM tb_pedido";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -281,7 +285,8 @@ function listarVenda($conexao) { //Roger testar
 
 
 //// // // // // // // // Pagamento  // // // // // // // // // // // // // //  
-function cadastrarPagamento($conexao, $valor, $data) {//Roger testar
+
+function cadastrarPagamento($conexao, $valor, $data) {
     $sql = "INSERT INTO tb_pedido (valor, data) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -297,7 +302,7 @@ function cadastrarPagamento($conexao, $valor, $data) {//Roger testar
     return $idpedido;
 };
 
-function editarPagamento($conexao, $forma_pagamento, $pagamento, $data_pagamento ,$idtb_pagamento) {//Roger testar
+function editarPagamento($conexao, $forma_pagamento, $pagamento, $data_pagamento ,$idtb_pagamento) {
     $sql = "UPDATE tb_pagamento SET forma_pagamento=?, pagamento=?, data_pagamento=?,WHERE idtb_pagamento=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -310,7 +315,7 @@ function editarPagamento($conexao, $forma_pagamento, $pagamento, $data_pagamento
     return $funcionou;
 };
 
-function listarPagamento($conexao) { //Roger testar
+function listarPagamento($conexao) {
     $sql = "SELECT * FROM tb_pagamento";
     $comando = mysqli_prepare($conexao, $sql);
 
@@ -326,7 +331,7 @@ function listarPagamento($conexao) { //Roger testar
     return $lista_pagamento;
 };
 
-function deletarPagamento($conexao, $idProduto) {////Roger testar
+function deletarPagamento($conexao, $idProduto) {
     $sql = "DELETE FROM tb_pagamento WHERE idtb_pagamento = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
