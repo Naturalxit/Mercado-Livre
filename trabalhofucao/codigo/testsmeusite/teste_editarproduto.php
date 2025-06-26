@@ -3,7 +3,7 @@
 require_once "../conexao.php";
 require_once "../funcoesdomeusite.php";
 
-$idproduto = 1;
+$idProduto = 1;
 $nome = "teste";
 $tipo = "alimento";
 $estado = "bom";

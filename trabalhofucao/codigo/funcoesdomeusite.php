@@ -64,7 +64,7 @@ function salvarUsuario($conexao, $nome, $email, $senha,  $cpf,$endereco,$foto,$t
 
 //// // // // // // // // Produto  // // // // // // // // // // // // // //  
 function cadastrarProduto($conexao, $nome, $tipo, $estado, $valor ,$estoque ,$descricao,$status,$categoria) {//Roger testar
-    $sql = "INSERT INTO tb_produto (nome, tipo, estado, valor ,estoque ,descricao, status,categoria) VALUES (?, ?, ?, ?,?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_produto (nome, tipo, estado, valor ,estoque ,descricao, `status`,categoria) VALUES (?, ?, ?, ?,?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sssdisss', $nome, $tipo, $estado, $valor ,$estoque ,$descricao,$status,$categoria);
@@ -80,7 +80,7 @@ function cadastrarProduto($conexao, $nome, $tipo, $estado, $valor ,$estoque ,$de
 };
 
 function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria, $idProduto) {//nao sei quem vez testar
-    $sql = "UPDATE Produto SET nome=?, tipo=?, estado=?, valor=?, estoque=?, descricao=?, status=?, categoria=? WHERE idProduto=?";
+    $sql = "UPDATE tb_produto SET nome=?, tipo=?, estado=?, valor=?, estoque=?, descricao=?, status=?, categoria=? WHERE idProduto=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sssdisssi', $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria, $idProduto);
@@ -93,7 +93,7 @@ function editarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descr
 };
 
 function deletarProduto($conexao, $idProduto) {//lorena testar
-    $sql = "DELETE FROM tb_roduto WHERE idProduto = ?";
+    $sql = "DELETE FROM tb_produto WHERE idProduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'i', $idProduto);
