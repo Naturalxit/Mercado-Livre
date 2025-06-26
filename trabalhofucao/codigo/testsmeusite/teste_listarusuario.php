@@ -2,5 +2,8 @@
 require_once "../conexao.php";
 require_once "../funcoesdomeusite.php";
 
-deletarVenda($conexao, 1);
+echo "<pre>";
+print_r(listarUsuario($conexao));
+echo "</pre>";
+
 ?>
