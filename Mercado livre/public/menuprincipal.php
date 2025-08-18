@@ -42,15 +42,15 @@
   <div class="dropdown">
     <a href="#" class="dropbtn">Categorias</a>
     <div class="dropdown-content">
-      <a href="#">Veículos</a>
-      <a href="#">Eletrodomésticos</a>
+      <a href="veiculo.php">Veículos</a>
+      <a href="eletrodomestico.php">Eletrodomésticos</a>
       <a href="moda.php">Moda</a>
-      <a href="#">Pet Shop</a>
-      <a href="#">Brinquedos</a>
-      <a href="#">Imóveis</a>
+      <a href="petshop.php">Pet Shop</a>
+      <a href="brinquedos.php">Brinquedos</a>
+      <a href="imoveis.php">Imóveis</a>
     </div>
   </div>
-  <a href="#">Ofertas</a>
+  <a href="ofertas.php">Ofertas</a>
   <a href="#">Cupons</a>
   <a href="#">Contato</a>
 </nav>
