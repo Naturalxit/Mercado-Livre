@@ -52,7 +52,7 @@
   </div>
   <a href="ofertas.php">Ofertas</a>
   <a href="#">Cupons</a>
-  <a href="#">Contato</a>
+  <a href="contato.php">Contato</a>
 </nav>
   </header>
 </body>
