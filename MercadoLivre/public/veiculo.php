@@ -13,7 +13,7 @@
     <div class="left">
       <a href="javascript:history.back()">←</a>
       
-      <span>Ve´culos</span>
+      <span>Veículos</span>
     </div>
     <img src="logo.png" alt="Clickaê" class="logo">
   </div>
