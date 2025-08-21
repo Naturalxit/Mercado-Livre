@@ -54,8 +54,8 @@
     </div>
   </div>
   <a href="ofertas.php" class="teste">Ofertas</a>
-  <a href="#" class="teste" >Cupons</a>
-  <a href="#" class="teste">Contato</a>
+  <a href="cupons.php" class="teste" >Cupons</a>
+  <a href="contato.php" class="teste">Contato</a>
 </nav>
   </header>
 </body>
