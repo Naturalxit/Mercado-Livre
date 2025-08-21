@@ -99,6 +99,7 @@ html, body { height: 100%; font-family: system-ui, -apple-system, Segoe UI, Robo
   .card__icon{ width: 48px; height: 48px; font-size: 22px; }
 }
 
+
 /* ====== Dica: HTML de referência ======
 <div class="header">
   <div class="header__row">
