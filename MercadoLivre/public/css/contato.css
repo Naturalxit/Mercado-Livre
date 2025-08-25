@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #bfd8d7;
+    background-color: #c7e2e4;
   }
   
     header {
@@ -17,9 +17,25 @@ body {
   }
 
     .topo {
-    display: flex;
+    /*display: flex;*/    /*Se mexer nisso, o h1 não vai centralizar*/
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
     flex-wrap: wrap;
+    background-color: #ffffff;
+  }
+
+  .conteudo{
+    background-color: #c7e2e4;
+    padding-left: 500px;
+    padding-right: 500px;
+  }
+
+    .conteudo1{
+    background-color: #ffffff;
+    padding: 30px 20px;
+  }
+
+  .center{
+    text-align: center;
   }
