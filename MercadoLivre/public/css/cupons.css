@@ -1,0 +1,64 @@
+/* Estilo geral */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c9ddde; /* cor azul clara do fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Caixa principal */
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Botão voltar */
+.back-btn {
+  background: #f1f1f1;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Título */
+h2 {
+  margin: 10px 0 20px;
+  font-weight: normal;
+}
+
+/* Grid de cupons */
+.coupons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 15px;
+}
+
+/* Cupom individual */
+.coupon {
+  background: #ededed;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+}
+
+.coupon strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.coupon p {
+  margin: 0;
+  color: #555;
+}
+

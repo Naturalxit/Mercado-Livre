@@ -19,8 +19,8 @@
                 <a href="formUsuario.php">Primeiro acesso</a> <br><br>
                     </div>
                     <div class="botao">
-                        <input type="submit" value="Logar" class="botao">
-
+                        <input type="submit" value="Acessar" class="botao">
+ 
                     </div>      
             </form>
         </div>

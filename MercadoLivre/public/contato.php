@@ -14,13 +14,6 @@
 
   </div>
 
-        <div class="busca">
-
-          <input type="text" placeholder="Buscar produto...">
-
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
-
-        </div>
 
   <div class="conteudo">
 

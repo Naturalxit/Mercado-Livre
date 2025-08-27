@@ -25,12 +25,12 @@
         <div class="frete">Frete Grátis</div>
         <div class="conta">
         <span><a href="perfil.php"><i class="fa-solid fa-user"></i></span>
-          <span><a href="menuregistrar.php">Criar Conta</a> | <a href="index.php">Entrar</a></span>
+          <span><a href="deslogar.php">Deslogar</a> |<!-- <a href="index.php">Entrar </a></span>-->
         </div>
 
 
         <div class="carrinho">
-          <i class="fa-solid fa-cart-shopping"></i>
+           <span> <a href="carrinho.php"> <i class="fa-solid fa-cart-shopping"></i></span>
         </div>
       </div>
     </div>
