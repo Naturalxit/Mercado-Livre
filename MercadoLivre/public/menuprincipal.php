@@ -58,5 +58,10 @@
   <a href="contato.php" class="teste">Contato</a>
 </nav>
   </header>
+
+  <div>
+    Imagem 1
+    <img src="">
+  </div>
 </body>
 </html>

@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #c7e2e4;
+  }
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #ffffff;
+  }
+
+.corpo {
+    padding: 80px 100px;
+    background-color: #e6e1e1;
+}
+
+.dentro {
+    padding: 15px 30px;
+    background-color: #ffffff;
+}

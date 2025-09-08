@@ -104,7 +104,7 @@
   </div>
 
   <div class="footer">
-  <a href="">Adicionar produto</a>
+  <a href="adicionarProduto.php">Adicionar produto</a>
   </div>
 
 </body>
