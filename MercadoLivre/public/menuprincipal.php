@@ -60,7 +60,7 @@
   </header>
 
   <div>
-    Imagem 1
+
     <img src="">
   </div>
 </body>

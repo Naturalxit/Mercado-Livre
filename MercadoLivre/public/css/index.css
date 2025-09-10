@@ -24,7 +24,7 @@ body {
 }
 
 .botao {
-    background-color: #292828;     /* fundo preto/cinza escuro */
+    background-color: #1623d6;
     color: #ffffff;                /* texto branco */
     border: none;
     padding: 8px 20px;            /* mais espaço interno */
@@ -40,7 +40,7 @@ body {
 }
 
 .botao:hover {
-    background-color: #444;        /* cor ao passar o mouse */
+    background-color: #0e0aec;        /* cor ao passar o mouse */
 } 
 
 
