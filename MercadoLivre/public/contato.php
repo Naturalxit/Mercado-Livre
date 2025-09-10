@@ -8,7 +8,7 @@
     
 </head>
 <body>
-  <div class="topo">
+  <div>
 
     <h1 class="center">Como podemos te ajudar?</h1>
 

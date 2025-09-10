@@ -25,10 +25,11 @@ body {
     background-color: #ffffff;
   }
 
-  .conteudo{
+  .conteudo1{
     background-color: #c7e2e4;
     padding-left: 500px;
     padding-right: 500px;
+    border-radius: 120px;
   }
 
     .conteudo1{
