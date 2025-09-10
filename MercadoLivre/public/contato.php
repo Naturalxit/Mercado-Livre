@@ -5,15 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
     <link rel="stylesheet" href="./css/contato.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
 </head>
 <body>
+      <div class="topo">
+      <div class="logo">
+        <i class="fa-solid fa-hand-pointer"></i> <span>Clickaê</span>
+</div>
+
   <div>
 
     <h1 class="center">Como podemos te ajudar?</h1>
 
   </div>
 
+      </div>
 
   <div class="conteudo">
 
