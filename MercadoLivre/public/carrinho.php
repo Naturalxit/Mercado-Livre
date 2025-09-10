@@ -15,7 +15,7 @@
     <div class="caixa"> 
     </div>
     
-    <div class="seta"></div>
+    
 
     
     
