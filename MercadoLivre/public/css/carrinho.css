@@ -9,16 +9,64 @@ body {
     background-color: rgb(247, 247, 247);
     padding: 200px;
     border-radius: 100px;
-    box-shadow: 0 0 100px rgba(0,0,0,0.1);
-
-   
-    width: 50%;
+    box-shadow: 0 0 100px rgba(0,0,0,0.1);   
+    width: 100%;
     max-width: 1000px;
-    height: 20px;
+    height: 450px;
     padding: 180px;
     border-radius: 40px;
+    margin-top: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-left: 70px;
+    padding-bottom: 10px;
+  }
+
+   .checkbox-container {
+      position: absolute;
+      bottom: 20px;
+      right: 530px;
+      height: 50px;
+}
+
+.logo-carrinho {
+      position: absolute;
+      top: 15px;   /* distância do topo */
+      right: 20px; /* distância da borda direita */
+      width: 40px; /* tamanho da logo */
+      cursor: pointer;
+}     
+
+ .caixamenor {
+  position: absolute;
+  top: 50%;          /* coloca no meio vertical */
+  right: 30px;       /* distância da borda direita */
+  transform: translateY(-50%); /* centraliza de fato no meio */
+  width: 350px;      /* largura da caixa */
+  height: 300px;     /* altura da caixa */
+  background: rgb(247, 247, 247);
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.botao-container {
+  display: flex;
+  justify-content: center; /* centraliza o botão */
+  /* margin-top: auto; */
+}
+
+.botao {
+  background-color: #0141f3; 
+  margin-top: 50%;
+  color: rgb(248, 248, 248);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  
+  
 }
 
 
-
+  
