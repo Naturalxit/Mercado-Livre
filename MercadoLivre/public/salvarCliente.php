@@ -1,6 +1,6 @@
 <?php
-require_once "conexao.php";
-require_once "funcoes.php";
+require_once "../controle/conexao.php";
+require_once "../codigos/funcoesdomeusite.php";
 
 $id = $_GET['id'];
 $nome = $_POST['nome'];
@@ -30,4 +30,4 @@ if ($id == 0) {
     editarCliente($conexao, $nome, $cpf, $endereco, $id);
 }
 
-header("Location: listarClientes.php");
+header("Location:listarClientes.php");

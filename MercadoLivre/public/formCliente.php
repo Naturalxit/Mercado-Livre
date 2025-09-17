@@ -2,8 +2,8 @@
     if (isset($_GET['id'])) {
         // echo "editar";
         
-        require_once "conexao.php";
-        require_once "funcoes.php";
+        require_once "../controle/conexao.php";
+        require_once "../codigos/funcoesdomeusite.php";
 
         $id = $_GET['id'];
         

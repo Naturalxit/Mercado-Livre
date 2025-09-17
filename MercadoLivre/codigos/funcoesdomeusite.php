@@ -2,11 +2,11 @@
     // varchar, string, data -> s
     // inteiro -> i
     // dinheiro, decimal -> d
-function salvarCliente($conexao, $nome, $cpf, $endereco, $telefone, $email, $senha) {//nao sei quem vez
-    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+function salvarCliente($conexao, $nome, $cpf, $endereco, $foto) {//nao sei quem vez
+    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssssss', $nome, $cpf, $endereco, $telefone, $email, $senha);
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $cpf, $endereco,$foto);
     
     mysqli_stmt_execute($comando);
     
@@ -343,4 +343,62 @@ function salvarPagamento($conexao, $forma_pagamento, $pagamento,$data_pagamento)
     return $funcionou;
 };
 
+function pesquisarClienteId($conexao, $idcliente) {
+    $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $cliente = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $cliente;
+};
+
+function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
+    $sql = "UPDATE tb_cliente SET nome=?, cpf=?, endereco=? WHERE idcliente=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    // varchar, string, data -> s
+    // inteiro -> i
+    // dinheiro, decimal -> d
+    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $endereco, $idcliente);
+    
+
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou;
+};
+
+function listarClientes($conexao) {
+    $sql = "SELECT * FROM tb_cliente";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_clientes = [];
+    while ($cliente = mysqli_fetch_assoc($resultado)) {
+        $lista_clientes[] = $cliente;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_clientes;
+};
+
+function deletarCliente($conexao, $idcliente) {
+    $sql = "DELETE FROM tb_cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; //true ou false
+};
 ?>
