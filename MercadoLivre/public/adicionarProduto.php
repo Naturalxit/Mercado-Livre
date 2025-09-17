@@ -20,6 +20,10 @@
         <div class="dentro">rrergr</div> <br><br>
         <div class="dentro">rrergr</div> <br><br>
 
+        <div class="botao">
+            <input type="submit" value="Cadastrar" class="botao">
+        </div> 
+
     </div>
 
 </body>

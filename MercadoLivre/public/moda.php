@@ -21,9 +21,8 @@
   <div class="produtos">
     <div class="produto">
     <img src="" alt="">
-      <div class="nome">Homem Camiseta Nike Pro Preta</div>
+       <a href="abrirfoto.php">Homem Camiseta Nike Pro Preta</a>
       <div class="preco">R$97,99</div>
-    </div>
 
     <div class="produto">
         <img src="" alt="">

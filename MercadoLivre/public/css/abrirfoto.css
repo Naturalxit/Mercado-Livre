@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c9ddde; /* cor azul clara do fundo */
+}
+
+.botao {
+    background-color: #1623d6;
+    color: #ffffff;                /* texto branco */
+    border: none;
+    padding: 8px 20px;            /* mais espaço interno */
+    border-radius: 30px;           /* bordas bem arredondadas */
+    cursor: pointer;
+    font-size: 20px;               /* texto grande */
+    font-weight: bold;            /* negrito */
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
+.foto{
+    background-color: #ffffff;
+    width: 400px;
+    height: 400px;
+}
+
+.nome{
+    margin-left: 230px;
+    height: 50px;
+    font-weight: bold;  
+}
+
+.preco{
+    margin-left: 230px;
+    font-weight: bold;  
+}
+
+.descricao{
+    margin-left: 230px;
+    height: 50px;
+    font-weight: bold;  
+}

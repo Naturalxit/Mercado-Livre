@@ -20,3 +20,18 @@ body {
     padding: 15px 30px;
     background-color: #ffffff;
 }
+
+.botao {
+    background-color: #1623d6;
+    color: #ffffff;                /* texto branco */
+    border: none;
+    padding: 8px 20px;            /* mais espaço interno */
+    border-radius: 30px;           /* bordas bem arredondadas */
+    cursor: pointer;
+    font-size: 20px;               /* texto grande */
+    font-weight:bold;            /* negrito */
+    display: inline-block;
+    margin-top: 10px;
+    display: block;
+    margin: 10px auto 0 auto;
+}
