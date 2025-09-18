@@ -79,6 +79,7 @@
 </head>
 <body>
 
+
 <div class="header">
     <div class="left">
       <a href="javascript:history.back()">←</a>
@@ -88,6 +89,7 @@
     <img src="logo.png" alt="Clickaê" class="logo">
   </div>
 
+  <h2>Criar Perfil</h2>
 
   <div class="container">
     <div class="profile-pic">
@@ -95,11 +97,11 @@
       <p>Perfil</p>
     </div>
     <div class="profile-info">
-      <input type="text" value="Fulano" readonly>
-      <input type="text" value="000.000.000-00" readonly>
-      <input type="text" value="00 0000-0000" readonly>
-      <input type="text" value="Rua 0, Q 0, Lt 0..." readonly>
-      <input type="text" value="Vendedor ou Cliente" readonly>
+      <input type="text" placeholder="Nome Completo">
+      <input type="text" placeholder="CPF">
+      <input type="text" placeholder="Número de telefone">
+      <input type="text" placeholder="Endereço">
+      <input type="text" placeholder="Vendedor ou Cliente">
     </div>
   </div>
 
