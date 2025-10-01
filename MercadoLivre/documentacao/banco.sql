@@ -27,8 +27,16 @@ CREATE TABLE IF NOT EXISTS `banco_mercado`.`tb_cliente` (
   `endereco` VARCHAR(100) NULL,
   `foto` VARCHAR(255) NULL,
   `telefone` VARCHAR(45) NULL,
-  PRIMARY KEY (`idcliente`))
-ENGINE = InnoDB;
+  `idusuario` INT NOT NULL, -- vínculo com usuário
+  PRIMARY KEY (`idcliente`),
+  UNIQUE (`idusuario`), -- cada usuário só pode ter um cliente
+  CONSTRAINT `fk_cliente_usuario`
+    FOREIGN KEY (`idusuario`)
+    REFERENCES `banco_mercado`.`tb_usuario` (`idusuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------

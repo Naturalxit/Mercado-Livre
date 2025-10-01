@@ -1,20 +1,90 @@
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        img {
-            width: 50px;
-            height: 50px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Perfil - Clickaê</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d0e6e7;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px 20px;
+    }
+
+    .header .logo {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .header .logo img {
+      margin-right: 10px;
+    }
+
+    .container {
+      display: flex;
+      padding: 40px;
+    }
+
+    .profile-pic {
+      flex: 1;
+      text-align: center;
+    }
+
+    .profile-pic img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 6px solid #333;
+      background-color: #333;
+    }
+
+    .profile-info {
+      flex: 1;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .profile-info input {
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      font-size: 16px;
+      background-color: #eee;
+    }
+
+    .footer {
+      text-align: right;
+      margin: 20px;
+      font-size: 14px;
+    }
+
+    .back-button {
+      background: #f5f5f5;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
+
+    <div class="header">
+    <div class="left">
+      <a href="javascript:history.back()">←</a>
+      
     <h1>Lista de clientes</h1>
 
     <?php

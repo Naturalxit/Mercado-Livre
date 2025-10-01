@@ -2,20 +2,20 @@
     // varchar, string, data -> s
     // inteiro -> i
     // dinheiro, decimal -> d
-function salvarCliente($conexao, $nome, $cpf, $endereco, $foto) {//nao sei quem vez
-    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
+//function salvarCliente($conexao, $nome, $cpf, $endereco, $foto) {//nao sei quem vez 
+//    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto) VALUES (?, ?, ?, ?)";
+//   $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $cpf, $endereco,$foto);
+//    mysqli_stmt_bind_param($comando, 'ssss', $nome, $cpf, $endereco,$foto);
     
-    mysqli_stmt_execute($comando);
+//    mysqli_stmt_execute($comando);
     
-    $idcliente = mysqli_stmt_insert_id($comando);
+//    $idcliente = mysqli_stmt_insert_id($comando);
 
-    mysqli_stmt_close($comando);
+//    mysqli_stmt_close($comando);
 
-    return $idcliente;
-};
+//   return $idcliente;
+//};
 
 function editarUsuario($conexao, $nome, $email, $senha, $tipo) {//Roger testar
     $sql = "UPDATE tb_usuario SET nome=?, email=?, senha=?, tipo=?, WHERE idusuario=?";
@@ -343,6 +343,16 @@ function salvarPagamento($conexao, $forma_pagamento, $pagamento,$data_pagamento)
     return $funcionou;
 };
 
+
+
+
+
+
+
+
+
+#####################################################
+
 function pesquisarClienteId($conexao, $idcliente) {
     $sql = "SELECT * FROM tb_cliente WHERE idcliente = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -401,4 +411,36 @@ function deletarCliente($conexao, $idcliente) {
     
     return $funcionou; //true ou false
 };
+
+function salvarCliente($conexao, $nome, $cpf, $endereco, $foto, $idusuario) {
+    // verifica se já existe cliente para o usuário
+    $sqlCheck = "SELECT idcliente FROM tb_cliente WHERE idusuario = ?";
+    $check = mysqli_prepare($conexao, $sqlCheck);
+    mysqli_stmt_bind_param($check, "i", $idusuario);
+    mysqli_stmt_execute($check);
+    mysqli_stmt_store_result($check);
+
+    if (mysqli_stmt_num_rows($check) > 0) {
+        mysqli_stmt_close($check);
+        return "erro_existente"; // já tem cliente para esse usuário
+    }
+    mysqli_stmt_close($check);
+
+    // se não existir, insere normalmente
+    $sql = "INSERT INTO tb_cliente (nome, cpf, endereco, foto, idusuario) 
+            VALUES (?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $cpf, $endereco, $foto, $idusuario);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    if ($funcionou) {
+        $idcliente = mysqli_insert_id($conexao);
+        mysqli_stmt_close($comando);
+        return $idcliente;
+    } else {
+        mysqli_stmt_close($comando);
+        return false;
+    }
+}
+
 ?>

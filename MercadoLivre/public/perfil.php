@@ -108,6 +108,14 @@
   <div class="footer">
   <a href="adicionarProduto.php">Adicionar produto</a>
   </div>
+   <div class="footer">
+  <a href="formCliente.php">Cadrastrar  Cliente</a>
+  </div>
+
+     <div class="footer">
+  <a href="listarClientes.php"> Cliente</a>
+  </div>
+
 
 </body>
 </html>
