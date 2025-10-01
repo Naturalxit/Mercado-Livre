@@ -1,4 +1,4 @@
-body {
+  body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background-color: #c7e2e4;
@@ -28,20 +28,57 @@ body {
 
   .conteudo1{
     background-color: #fafafa;
-    /* background-color: black; */
     display: grid;
     gap: 2 px;
-    padding: 20px;
-    text-align: center;
+    padding: 30px;
+    text-align: left;
     margin-left: 180px;
     margin-right: 180px;
-    
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+
   }
-
-    
-
 
 
   .center{
     text-align: center;
   }
+
+  .compras{
+    margin-left: 180px;
+  }
+
+  .vendas{
+    margin-left: 180px;
+
+  }
+
+
+    .link {
+  position: absolute;
+  right: 200px; /* Coloca o ">" no canto direito da caixa */
+  top: 25%;
+  text-decoration: none; /* Remove o sublinhado do link */
+  font-size: 20px; /* Define o tamanho do símbolo ">" */
+  color: #000; /* Cor do símbolo ">" */
+  font-weight: bold; /* Deixa o símbolo em negrito */
+
+}
+
+
+.conteudo2{
+    background-color: #fafafa;
+    display: grid;
+    gap: 2 px;
+    padding: 30px;
+    text-align: left;
+    margin-left: 180px;
+    margin-right: 180px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+      
+
+}
+

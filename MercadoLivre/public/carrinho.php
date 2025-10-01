@@ -12,6 +12,13 @@
 </head>
 <body>
 
+    <div>
+
+        <h1 class="center">Carrinho de compras</h1>
+
+
+    </div>
+
 
   <img src="css/carrinho-removebg-preview.png" class="logo-carrinho" width="30">
 

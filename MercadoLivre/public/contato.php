@@ -22,39 +22,52 @@
 
       </div>
 
-  <div class="conteudo">
-
-
+  <div class="compras">
 
       Compras <br><br>
 
+  </div>
+
       <div class="conteudo1">
 
-          Administrar e cancelar compras <br><br>
-          Pagar, rastrear envios,alterar,reclamar ou cancelar compras
+          <b>Administrar e cancelar compras</b> <br>
+          Pagar, rastrear envios,alterar,reclamar ou cancelar 
+          
+          
+  <a href="administrarecancelar.php" class="link"> &gt; </a>
+
 
       </div>
-      <br>
-      <div class="conteudo1">
 
-          Devoluções e reembolsos<br><br>
+
+
+      <br>
+      <div class="conteudo2">
+
+          <b>Devoluções e reembolsos</b> <br>
           Devolver um produto ou consultar por estorno de compra
+
+       <a href="devolucoes.php" class="link"> &gt; </a>
+
 
       </div>
       <br>
             <div class="conteudo1">
 
-          Perguntas frequentes sobre compras <br><br>
+          <b>Perguntas frequentes sobre compras</b> <br>
 
       </div>
 
       <br>
 
-      Venda <br><br>
+      <div class="vendas">
+              Vendas <br><br>
+     </div>
+
 
       <div class="conteudo1">
 
-          Reputação, vendas e envio <br><br>
+        <b>Reputação, vendas e envio</b> <br>
           Perguntar sobre sua reputação, envio, pagamento ou devolução
 
       </div>
