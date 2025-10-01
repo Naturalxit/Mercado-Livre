@@ -1,35 +1,48 @@
 <?php
-    if (isset($_GET['id'])) {
-        // echo "editar";
-        
-        require_once "../controle/conexao.php";
-        require_once "../codigos/funcoesdomeusite.php";
+session_start();
 
-        $id = $_GET['id'];
-        
-        $cliente = pesquisarClienteId($conexao, $id);
-        $nome = $cliente['nome'];
-        $cpf = $cliente['cpf'];
-        $endereco = $cliente['endereco'];
+// Verifica login
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header("Location: index.php");
+    exit;
+}
 
-        $botao = "Atualizar";
-    }
-    else {
-        // echo "novo";
-        $id = 0;
-        $nome = "";
-        $cpf = "";
-        $endereco = "";
+$idusuario = $_SESSION['idusuario'];
 
-        $botao = "Cadastrar";
-    }
+require_once "../controle/conexao.php";
+require_once "../codigos/funcoesdomeusite.php";
+
+// Primeiro verifica se já existe cliente para este usuário
+$sql = "SELECT * FROM tb_cliente WHERE idusuario = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $idusuario);
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+    // Já existe cliente → edição
+    $cliente = $resultado->fetch_assoc();
+    $id = $cliente['idcliente'];
+    $nome = $cliente['nome'];
+    $cpf = $cliente['cpf'];
+    $endereco = $cliente['endereco'];
+    $botao = "Atualizar";
+} else {
+    // Não existe cliente → cadastro
+    $id = 0;
+    $nome = "";
+    $cpf = "";
+    $endereco = "";
+    $botao = "Cadastrar";
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Cliente</title>
 </head>
 <body>
     <h1>Cadastro de Cliente</h1>
@@ -39,8 +52,10 @@
 
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
+
         CPF: <br>
         <input type="text" name="cpf" value="<?php echo $cpf; ?>"> <br><br>
+
         Endereço: <br>
         <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
 

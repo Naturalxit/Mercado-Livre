@@ -1,4 +1,7 @@
 <?php
+session_start();
+$idusuario = $_SESSION['idusuario']; // pega id do usuário logado
+
 require_once "../controle/conexao.php";
 require_once "../codigos/funcoesdomeusite.php";
 
@@ -24,10 +27,16 @@ $caminho_destino = "fotos/" . $novo_nome;
 //movendo o arquivo para o servidor
 move_uploaded_file($caminho_temporario, $caminho_destino);
 
+
+
 if ($id == 0) {
-    salvarCliente($conexao, $nome, $cpf, $endereco, $novo_nome);
+    $idcliente = salvarCliente($conexao, $nome, $cpf, $endereco, $novo_nome, $idusuario);
+    header("Location: mostrarCadastro.php?idcliente=$idcliente&idusuario=$idusuario");
+    exit;
 } else {
-    editarCliente($conexao, $nome, $cpf, $endereco, $id);
+    editarCliente($conexao, $nome, $cpf, $endereco, $id, $idusuario, $novo_nome);
+    header("Location: listarClientes.php");
+    exit;
 }
 
-header("Location:listarClientes.php");
+
