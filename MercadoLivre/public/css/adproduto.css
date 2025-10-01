@@ -17,58 +17,36 @@ body {
     text-align: center;
 }
 
-.dentro {
-    padding: 15px 30px;
-    background-color: #ffffff;
+.corpo {
+
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
 }
 
 .botao {
     background-color: #1623d6;
     color: #ffffff;                /* texto branco */
-    border: none;
-    padding: 8px 20px;            /* mais espaço interno */
-    border-radius: 30px;           /* bordas bem arredondadas */
-    cursor: pointer;
-    font-size: 20px;               /* texto grande */
-    font-weight:bold;            /* negrito */
-    display: inline-block;
-    margin-top: 10px;
-    display: block;
-    margin: 10px auto 0 auto;
+    padding: 20px 10px;            /* mais espaço interno */
+    border-radius: 30px;           /* bordas bem arredondadas */ 
 }
 
 .botao:hover {
     background-color: #0e0aec;        /* cor ao passar o mouse */
 } 
 
-  .profile-info {
-    flex: 1;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-    .profile-info input {
+.profile-info input {
     padding: 12px;
     border-radius: 25px;
     border: none;
     font-size: 16px;
     background-color: #eee;
-  }
-
-  .corpo {
-  background: rgb(228, 223, 223);
-  padding: 20px;
-  border-radius: 20px;
-  width: 80%;
-  max-width: 800px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
-position: absolute; 
-top: 50%; 
-left: 50%; 
-transform: translate(-50%, -50%); 
-
 }
+
 
