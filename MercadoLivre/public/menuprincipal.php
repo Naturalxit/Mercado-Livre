@@ -1,3 +1,9 @@
+<?php
+
+require_once "../codigos/funcoesdomeusite.php";
+require_once "../controle/conexao.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -61,7 +67,21 @@
 
   <div>
 
+  <a href="https://google.com.br/">  
     <img src="">
-  </div>
+    <div style="background-color: #eee; width: 400px; ">
+
+        
+      <?php
+    
+        $produtos = listarProdutos($conexao);
+        echo "<pre>";
+        print_r($produtos);
+        echo "</pre>";
+
+      ?>
+      </div>
+  </a>
+    </div>
 </body>
 </html>
