@@ -23,15 +23,23 @@
       <img src="https://img.icons8.com/ios-filled/50/0000FF/money.png" alt="Ofertas">
       Todas as ofertas
     </div>
-    <div class="filter">
+
+    <div>
+     <a href="ofertarelampago.php" class="filter">
       <img src="https://img.icons8.com/ios-filled/50/000000/flash-on.png" alt="Relâmpago">
       Oferta relâmpago
+    </a>
     </div>
+
+
     <div class="filter">
+      <a href="desconto.php" class="filter">
       <img src="https://img.icons8.com/ios-filled/50/000000/piggy-bank.png" alt="Desconto">
-      Menos de R$100k
+      Desconto
+    </a>
     </div>
   </div>
+  
   <!-- Lista de veículos -->
   <div class="container">
     <div class="card">
