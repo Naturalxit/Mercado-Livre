@@ -34,7 +34,7 @@
           Pagar, rastrear envios,alterar,reclamar ou cancelar 
           
           
-  <a href="administrarecancelar.php" class="link"> &gt; </a>
+ 
 
 
       </div>
@@ -47,7 +47,7 @@
           <b>Devoluções e reembolsos</b> <br>
           Devolver um produto ou consultar por estorno de compra
 
-       <a href="devolucoes.php" class="link"> &gt; </a>
+       <a href="administrarcompras.php" class="link"> &gt; </a>
 
 
       </div>
