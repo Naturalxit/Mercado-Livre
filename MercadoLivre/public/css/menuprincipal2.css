@@ -1,0 +1,17 @@
+
+  
+  .acoes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    text-align: right;
+  }
+  
+
+  
+  .conta a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 3px;
+  }
