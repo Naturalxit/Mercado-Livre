@@ -443,4 +443,20 @@ function salvarCliente($conexao, $nome, $cpf, $endereco, $foto, $idusuario) {
     }
 }
 
+function listarCategoria($conexao) {
+    $sql = "SELECT * FROM tb_categoria";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_categoria = [];
+    while ($categoria = mysqli_fetch_assoc($resultado)) {
+        $lista_categoria[] = $categoria;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_categoria;
+};
+
 ?>

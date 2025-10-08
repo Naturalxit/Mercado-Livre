@@ -69,22 +69,28 @@ if (isset($_GET['id'])) {
 
             <input type="text" name="estoque" value="<?php echo $estoque; ?>" placeholder="Estoque do Produto"><br><br>
 
-            <input type="text" name="tipo" value="<?php echo $tipo; ?>" placeholder="Tipo do Produto" > <br><br>
-
             <input type="text" name="estado" value="<?php echo $estado; ?>" placeholder="Estado do Produto"><br><br>
 
             <input type="text" name="status" value="<?php echo $status; ?>" placeholder="Status do Produto"><br><br>
 
 
                 <label for="categoria">Categoria:</label> <br>
-                <select name="categoria" id="categoria">
-                    <option value="Veículos">Veículos</option>
-                    <option value="Eletrodomésticos">Eletrodomésticos</option>
-                    <option value="Moda">Moda</option>
-                    <option value="Pet Shop">Pet Shop</option>
-                    <option value="Brinquedos">Brinquedos</option>
-                    <option value="Imóveis">Imóveis</option>
-                </select> <br><br> 
+                    <select name="idcategoria" id="idcategoria">
+                        <?php
+                            require_once "conexao.php";
+                            require_once "funcoesdomeusite.php";
+
+                            $lista_clientes = listarClientes($conexao);
+            
+                            foreach ($lista_clientes as $cliente) {
+                            $idcliente = $cliente['idcliente'];
+                            $nome = $cliente['nome'];
+                
+                            echo "<option value='$idcliente'>$nome</option>";
+                            }
+                        ?>
+                    </select>
+
 
         <div class="botao">
 
@@ -97,6 +103,8 @@ if (isset($_GET['id'])) {
     </div>
 
 </div>
+
+        <a href="formcategoria.php">Clique aqui para adicionar uma categoria</a>
 
 </body>
 </html>

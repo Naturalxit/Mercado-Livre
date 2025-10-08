@@ -28,12 +28,13 @@ body {
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%); 
+  
 }
 
 .botao {
     background-color: #1623d6;
     color: #ffffff;                /* texto branco */
-    padding: 20px 10px;            /* mais espaço interno */
+    padding: 8px 8px;            /* mais espaço interno */
     border-radius: 30px;           /* bordas bem arredondadas */ 
 }
 
@@ -48,15 +49,4 @@ body {
     font-size: 16px;
     background-color: #eee;
 }
-
-a {
-    color: #000; /* Cor preta para o texto */
-    text-decoration: none; /* Retira o sublinhado */
-    font-size: 16px; /* Ajusta o tamanho da fonte */
-}
-
-a:hover {
-    color: #fcfeff; /* Altera a cor ao passar o mouse */
-}
-
 
