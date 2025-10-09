@@ -19,35 +19,25 @@ if (!$db) {
 
 // --- definir nome do usuário a exibir ---
 $usuarioLogado = 'Visitante';
-
-// prioridade 1: $_SESSION['usuario'] (se seu login já salva o nome)
 if (!empty($_SESSION['usuario'])) {
     $usuarioLogado = $_SESSION['usuario'];
-}
-// prioridade 2: buscar pelo id em $_SESSION['idusuario']
-elseif (!empty($_SESSION['idusuario'])) {
+} elseif (!empty($_SESSION['idusuario'])) {
     $idusuario = (int) $_SESSION['idusuario'];
-
     $sql = "SELECT nome FROM tb_usuario WHERE idusuario = ? LIMIT 1";
     $stmt = $db->prepare($sql);
-
     if ($stmt) {
         $stmt->bind_param("i", $idusuario);
-
         if ($stmt->execute()) {
-            // se get_result estiver disponível (mysqlnd) usamos ele
             if (method_exists($stmt, 'get_result')) {
                 $res = $stmt->get_result();
                 if ($res && $res->num_rows > 0) {
                     $row = $res->fetch_assoc();
                     if (!empty($row['nome'])) {
                         $usuarioLogado = $row['nome'];
-                        // opcional: salvar no session para evitar várias consultas
                         $_SESSION['usuario'] = $usuarioLogado;
                     }
                 }
             } else {
-                // fallback sem get_result: bind_result + fetch
                 $stmt->bind_result($nome);
                 if ($stmt->fetch() && !empty($nome)) {
                     $usuarioLogado = $nome;
@@ -56,10 +46,6 @@ elseif (!empty($_SESSION['idusuario'])) {
             }
         }
         $stmt->close();
-    } else {
-        // prepare falhou — em ambiente dev você pode debugar:
-        // die("Erro ao preparar consulta: " . $db->error);
-        // manter 'Visitante' se falhar
     }
 }
 ?>
@@ -70,43 +56,66 @@ elseif (!empty($_SESSION['idusuario'])) {
   <meta charset="UTF-8">
   <title>Clickaê Loja</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/menuprincipal2.css">
   <script src="https://kit.fontawesome.com/8dcbf7f2b4.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #c6e2e2;
+    }
+
+    /* --- Banner de ponta a ponta estilo Mercado Livre --- */
+    .banner-wrapper {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: hidden;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 400px; /* altura fixa estilo Mercado Livre */
+      object-fit: cover; /* recorta proporcionalmente */
+      object-position: center; /* centraliza a imagem */
+    }
+
+    .carousel-indicators [data-bs-target] {
+      background-color: #333;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1);
+    }
+  </style>
 </head>
 
-<body style="background-color:#c6e2e2;">
+<body>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
     <div class="container-fluid">
-
-      <!-- LOGO -->
       <a class="navbar-brand fw-bold text-dark" href="menuprincipal.php">
         <i class="fa-solid fa-hand-pointer"></i> Clickaê
       </a>
 
-      <!-- BOTÃO MOBILE -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"
-        aria-controls="menuNav" aria-expanded="false" aria-label="Alternar navegação">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- CONTEÚDO -->
       <div class="collapse navbar-collapse" id="menuNav">
-        
-        <!-- CAMPO DE BUSCA CENTRAL -->
+
+        <!-- Campo de busca -->
         <form class="d-flex mx-auto" role="search" style="max-width:500px; width:100%;">
           <input class="form-control me-2" type="search" placeholder="Buscar produto..." aria-label="Buscar">
           <button class="btn btn-outline-primary" type="submit">Buscar</button>
         </form>
 
-        <!-- LINKS DA ESQUERDA -->
+        <!-- Menus -->
         <ul class="navbar-nav mb-2 mb-lg-0">
-
-          <!-- CATEGORIAS -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               Categorias
             </a>
             <ul class="dropdown-menu">
@@ -118,34 +127,27 @@ elseif (!empty($_SESSION['idusuario'])) {
               <li><a class="dropdown-item" href="imoveis.php">Imóveis</a></li>
             </ul>
           </li>
-
-          <!-- OUTROS LINKS -->
           <li class="nav-item"><a class="nav-link" href="ofertas.php">Ofertas</a></li>
           <li class="nav-item"><a class="nav-link" href="cupons.php">Cupons</a></li>
           <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
         </ul>
 
-        <!-- SEÇÃO DIREITA -->
+        <!-- Perfil e carrinho -->
         <ul class="navbar-nav ms-auto align-items-center gap-3">
-          <!-- FRETE -->
           <li class="nav-item">
             <span class="text-success fw-semibold"><i class="fa-solid fa-truck-fast"></i> Frete Grátis</span>
           </li>
-
-          <!-- PERFIL -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown">
               <i class="fa-solid fa-user"></i> <?php echo htmlspecialchars($usuarioLogado); ?>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="perfilDropdown">
+            <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="perfil.php"><i class="fa-solid fa-id-card"></i> Meu Perfil</a></li>
               <li><a class="dropdown-item" href="meus_pedidos.php"><i class="fa-solid fa-box"></i> Meus Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="deslogar.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
             </ul>
           </li>
-
-          <!-- CARRINHO -->
           <li class="nav-item">
             <a href="carrinho.php" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
           </li>
@@ -153,6 +155,37 @@ elseif (!empty($_SESSION['idusuario'])) {
       </div>
     </div>
   </nav>
+
+  <!-- 🚩 BANNER DE PONTA A PONTA -->
+  <div class="banner-wrapper mt-0">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="banner1.jpg" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+          <img src="../banners/banner2.jpg" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+          <img src="../banners/banner3.jpg" alt="Banner 3">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
 
   <!-- CONTEÚDO PRINCIPAL -->
   <div class="container mt-5">
