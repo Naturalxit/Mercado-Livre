@@ -143,7 +143,7 @@ if (!empty($_SESSION['usuario'])) {
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="perfil.php"><i class="fa-solid fa-id-card"></i> Meu Perfil</a></li>
-              <li><a class="dropdown-item" href="meus_pedidos.php"><i class="fa-solid fa-box"></i> Meus Pedidos</a></li>
+              <li><a class="dropdown-item" href="meuspedidos.php"><i class="fa-solid fa-box"></i> Meus Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="deslogar.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
             </ul>
