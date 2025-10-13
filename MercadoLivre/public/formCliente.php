@@ -43,9 +43,12 @@ if ($resultado->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="./css/formcliente.css">
 </head>
 <body>
-    <h1>Cadastro de Cliente</h1>
+    <div class= "topo">
+        <h1>Cadastro de Cliente</h1>
+    </div> <br>
     <form action="salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Foto: <br>
         <input type="file" name="foto"> <br><br>
