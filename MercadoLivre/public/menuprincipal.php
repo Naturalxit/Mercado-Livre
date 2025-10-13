@@ -135,7 +135,7 @@ if (!empty($_SESSION['usuario'])) {
         <!-- Perfil e carrinho -->
         <ul class="navbar-nav ms-auto align-items-center gap-3">
           <li class="nav-item">
-            <span class="text-success fw-semibold"><i class="fa-solid fa-truck-fast"></i> Frete Grátis</span>
+            <a class="text-success fw-semibold" href="fretegratis.php"><i class="fa-solid fa-truck-fast"></i> Frete Grátis</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown">
@@ -193,5 +193,8 @@ if (!empty($_SESSION['usuario'])) {
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 </body>
 </html>
