@@ -39,7 +39,7 @@
    <p>Resumo da compra</p>
    <div class="botaocontainer">
     <br><Br><br><br><br><Br><br><br><br><Br><br><br><br><Br><br><Br>
-    <a href="finalizarcompra.php" class="botao">Finalizar</a>
+    <a href="finalizarcompra.php" class="botao">Finalizar Compra</a>
    </div>
 
 </div>

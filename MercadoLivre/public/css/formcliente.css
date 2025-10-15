@@ -13,3 +13,29 @@ body {
     flex-wrap: wrap;
   }
   
+  .corpo {
+    width: 30%;
+    background-color: #e6e1e1;
+    text-align: center;
+}
+
+.corpo {
+
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+
+.profile-info input {
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    background-color: #eee;
+}

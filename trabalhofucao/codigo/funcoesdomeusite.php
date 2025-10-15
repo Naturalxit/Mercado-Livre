@@ -62,6 +62,21 @@ function salvarUsuario($conexao, $nome, $email, $senha,  $cpf,$endereco,$foto,$t
 
     return $idusuario;
 };
+function pesquisarUsuario($conexao, $idusuario) {
+    $sql = "SELECT * FROM tb_usuario WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idusuario);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produto = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $usuario;
+};
+
 
 
 //// // // // // // // // Produto  // // // // // // // // // // // // // //  

@@ -1,42 +1,30 @@
 <?php
-session_start();
+    if (isset($_GET['id'])) {
+        // echo "editar";
 
-// Verifica login
-if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: index.php");
-    exit;
-}
+        require_once "conexao.php";
+        require_once "funcoes.php";
 
-$idusuario = $_SESSION['idusuario'];
+        $id = $_GET['id'];
+        
+        $cliente = pesquisarUsuario($conexao, $id);
+        $nome = $cliente['nome'];
+        $cpf = $cliente['cpf'];
+        $endereco = $cliente['endereco'];
 
-require_once "../controle/conexao.php";
-require_once "../codigos/funcoesdomeusite.php";
+        $botao = "Atualizar";
+    }
+    else {
+        // echo "novo";
+        $id = 0;
+        $nome = "";
+        $cpf = "";
+        $endereco = "";
 
-// Primeiro verifica se já existe cliente para este usuário
-$sql = "SELECT * FROM tb_cliente WHERE idusuario = ?";
-$stmt = $conexao->prepare($sql);
-$stmt->bind_param("i", $idusuario);
-$stmt->execute();
-
-$resultado = $stmt->get_result();
-
-if ($resultado->num_rows > 0) {
-    // Já existe cliente → edição
-    $cliente = $resultado->fetch_assoc();
-    $id = $cliente['idcliente'];
-    $nome = $cliente['nome'];
-    $cpf = $cliente['cpf'];
-    $endereco = $cliente['endereco'];
-    $botao = "Atualizar";
-} else {
-    // Não existe cliente → cadastro
-    $id = 0;
-    $nome = "";
-    $cpf = "";
-    $endereco = "";
-    $botao = "Cadastrar";
-}
+        $botao = "Cadastrar";
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -48,10 +36,15 @@ if ($resultado->num_rows > 0) {
 <body>
     <div class= "topo">
         <h1>Cadastro de Cliente</h1>
-    </div> <br>
+    </div> <br><br>
+
+    <div class="corpo">
+        
     <form action="salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Foto: <br>
         <input type="file" name="foto"> <br><br>
+
+<div class="profile-info">
 
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
@@ -63,6 +56,11 @@ if ($resultado->num_rows > 0) {
         <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
 
         <input type="submit" value="<?php echo $botao; ?>">
+
     </form>
+
+</div>
+    </div>
+
 </body>
 </html>
