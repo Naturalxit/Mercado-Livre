@@ -2,12 +2,12 @@
     if (isset($_GET['id'])) {
         // echo "editar";
 
-        require_once "conexao.php";
-        require_once "funcoes.php";
+        require_once "../codigos/funcoesdomeusite.php";
+        require_once "../controle/conexao.php";
 
         $id = $_GET['id'];
         
-        $cliente = pesquisarUsuario($conexao, $id);
+        $cliente = pesquisarCliente($conexao, $id);
         $nome = $cliente['nome'];
         $cpf = $cliente['cpf'];
         $endereco = $cliente['endereco'];

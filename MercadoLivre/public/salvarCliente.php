@@ -1,42 +1,43 @@
 <?php
 session_start();
-$idusuario = $_SESSION['idusuario']; // pega id do usuário logado
-
 require_once "../controle/conexao.php";
 require_once "../codigos/funcoesdomeusite.php";
 
-$id = $_GET['id'];
+$idusuario = $_SESSION['idusuario']; // usuário logado
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $endereco = $_POST['endereco'];
 
-$nome_arquivo = $_FILES['foto']['name'];
-$caminho_temporario = $_FILES['foto']['tmp_name'];
-
-// pega a extensão do arquivo
-$extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
-
-//gera um novo nome para o arquivo
-$novo_nome = uniqid() . "." . $extensao;
-
-//criando um novo caminho para o arquivo (usando o endereço da página)
-//lembre-se de criar a pasta "fotos/" dentro da pasta "codigo".
-//deve ajustar as permissões da pasta "fotos".
-$caminho_destino = "fotos/" . $novo_nome;
-
-//movendo o arquivo para o servidor
-move_uploaded_file($caminho_temporario, $caminho_destino);
-
-
-
-if ($id == 0) {
-    $idcliente = salvarCliente($conexao, $nome, $cpf, $endereco, $novo_nome, $idusuario);
-    header("Location: mostrarCadastro.php?idcliente=$idcliente&idusuario=$idusuario");
-    exit;
-} else {
-    editarCliente($conexao, $nome, $cpf, $endereco, $id, $idusuario, $novo_nome);
-    header("Location: listarClientes.php");
-    exit;
+$novo_nome = "";
+if (!empty($_FILES['foto']['name'])) {
+    $nome_arquivo = $_FILES['foto']['name'];
+    $caminho_temporario = $_FILES['foto']['tmp_name'];
+    $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+    $novo_nome = uniqid() . "." . $extensao;
+    $caminho_destino = "../fotos_clientes/" . $novo_nome;
+    if (!file_exists("../fotos_clientes")) mkdir("../fotos_clientes", 0777, true);
+    move_uploaded_file($caminho_temporario, $caminho_destino);
 }
 
+// Verifica se já existe cliente para este usuário
+$cliente_existente = pesquisarClientePorUsuario($conexao, $idusuario);
 
+if ($cliente_existente) {
+    // Atualiza cliente existente
+    $idcliente = $cliente_existente['idcliente'];
+    if ($novo_nome == "") $novo_nome = $cliente_existente['foto']; // mantém foto antiga
+    editarCliente($conexao, $nome, $cpf, $endereco, $idcliente, $idusuario, $novo_nome);
+} else {
+    // Cria novo cliente
+    $idcliente = salvarCliente($conexao, $nome, $cpf, $endereco, $novo_nome, $idusuario);
+    if($idcliente === "erro_existente") {
+        // Já existe cliente (apenas por segurança)
+        header("Location: listarClientes.php");
+        exit;
+    }
+}
+
+// Redireciona após salvar/atualizar
+header("Location: listarClientes.php");
+exit;
+?>
