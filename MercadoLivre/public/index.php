@@ -16,6 +16,22 @@
                 Senha: <br>
                 <input type="text" name="senha"> <br><br>
                     <div class="acesso">
+
+                     <button id="mostrarSenha">Mostrar senha</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#mostrarSenha').click(function() {
+                let tipo = $('#senha').attr('type');
+                if (tipo == 'password') {
+                    $('#senha').attr('type', 'text');
+                } else {
+                    $('#senha').attr('type', 'password');
+                }
+            });
+        });
+    </script>
+
                 <a href="formUsuario.php">Primeiro acesso</a> <br><br>
                     </div>
                     <div class="botao">
