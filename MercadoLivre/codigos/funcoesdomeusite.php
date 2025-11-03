@@ -148,4 +148,29 @@ function pesquisarProduto($conexao, $idProduto) {
     mysqli_stmt_close($comando);
     return $produto;
 }
+
+
+function listarCategoria($conexao) {
+    $sql = "SELECT * FROM categoria";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $lista = [];
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $lista[] = $row;
+    }
+    mysqli_stmt_close($comando);
+    return $lista;
+}
+
+function cadastrarCategoria($conexao, $nome) {
+    $sql = "INSERT INTO categoria (nome) VALUES (?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 's', $nome);
+    mysqli_stmt_execute($comando);
+    $idcategoria = mysqli_stmt_insert_id($comando);
+    mysqli_stmt_close($comando);
+    return $idcategoria;
+}
+
 ?>

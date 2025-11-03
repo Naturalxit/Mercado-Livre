@@ -1,27 +1,38 @@
 <?php
-require_once "../controle/conexao.php";
-require_once "../codigos/funcoesdomeusite.php";
-
-
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $produto = pesquisarProduto($conexao, $id);
+    // echo "editar";
 
-    $nome = $produto['nome'];
-    $valor = $produto['valor'];
-    $estoque = $produto['estoque'];
-    $descricao = $produto['descricao'];
-    $estado = $produto['estado'];
-    $categoria = $produto['categoria_idcategoria'];
+    require_once "conexao.php";
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM tb_produto WHERE idproduto = $id";
+
+    $resultados = mysqli_query($conexao, $sql);
+
+    $linha = mysqli_fetch_array($resultados);
+
+    $nome = $linha['nome'];
+    $descricao['descricao'];
+    $valor = $linha['valor'];
+    $estoque = $linha['estoque'];
+    $tipo = $linha['tipo'];
+    $estado = ['estado'];
+    $status = $linha['status'];
+    $categoria = $linha['categoria'];
+
 
     $botao = "Atualizar";
+
 } else {
+    // echo "novo";
     $id = 0;
     $nome = "";
+    $descricao = "";
     $valor = "";
     $estoque = "";
-    $descricao = "";
+    $tipo= "";
     $estado = "";
+    $status = "";
     $categoria = "";
 
     $botao = "Cadastrar";
@@ -29,45 +40,70 @@ if (isset($_GET['id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Cadastro de Produto</title>
-<link rel="stylesheet" href="./css/formcliente.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="./css/adproduto.css">
 </head>
-
 <body>
-<div class="topo">
-    <h1>Cadastro de Produto</h1>
-</div><br><br>
 
-<div class="corpo">
-<form action="salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+    <div class="topo">
+        <i class="fa-solid fa-hand-pointer"></i> <span>Clickaê</span>
+    </div> <br><br>
 
-    Foto:<br>
-    <input type="file" name="foto"><br><br>
+<div class="profile-info">
+    
+    <div class="corpo">
 
-    Nome:<br>
-    <input type="text" name="nome" value="<?php echo $nome; ?>"><br><br>
+        Cadastrar Produto <br><br>
 
-    Valor:<br>
-    <input type="text" name="valor" value="<?php echo $valor; ?>"><br><br>
+        <form action="salvarproduto.php?id=<?php echo $id;?>" method="post">
+            
+            <input type="text" name="nome" value="<?php echo $nome; ?>" placeholder="Nome do Produto" > <br><br>
 
-    Estoque:<br>
-    <input type="number" name="estoque" value="<?php echo $estoque; ?>"><br><br>
+            <input type="text" name="descricao" value="<?php echo $descricao; ?>" placeholder="Descrição do Produto"><br><br>
 
-    Estado (novo/usado):<br>
-    <input type="text" name="estado" value="<?php echo $estado; ?>"><br><br>
+            <input type="text" name="valor" value="<?php echo $valor; ?>" placeholder="Valor do Produto"><br><br>            
+            <input type="text" name="estoque" value="<?php echo $estoque; ?>" placeholder="Estoque do Produto"><br><br>
 
-    Categoria:<br>
-    <input type="number" name="categoria" value="<?php echo $categoria; ?>"><br><br>
+            <input type="text" name="estado" value="<?php echo $estado; ?>" placeholder="Estado do Produto"><br><br>
 
-    Descrição:<br>
-    <textarea name="descricao"><?php echo $descricao; ?></textarea><br><br>
+            <input type="text" name="status" value="<?php echo $status; ?>" placeholder="Status do Produto"><br><br>
 
-    <input type="submit" value="<?php echo $botao; ?>">
 
-</form>
+                <label for="categoria">Categoria:</label> <br>
+                    <select name="idcategoria" id="idcategoria">
+                        <?php
+                            require_once "../controle/conexao.php";
+                            require_once "../codigos/funcoesdomeusite.php";
+
+                            $lista_categoria = listarCategoria($conexao);
+            
+                            foreach ($lista_categoria as $categoria) {
+                            $idcliente = $categoria['idcategoria'];
+                            $nome = $categoria['nome'];
+                
+                            echo "<option value='$idcategoria'>$nome</option>";
+                            }
+                        ?>
+                    </select>
+
+
+        <div class="botao">
+
+            <input type="submit" value="<?php echo $botao; ?>">
+
+        </div>
+
+        </form>
+
+    </div>
+
 </div>
+                       
+        <a href="formcategoria.php">Clique aqui para adicionar uma categoria</a>
+
 </body>
 </html>

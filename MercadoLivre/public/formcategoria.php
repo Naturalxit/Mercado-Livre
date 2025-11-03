@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     require_once "conexao.php";
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM tb_categoria WHERE idcategoria = $id";
+    $sql = "SELECT * FROM categoria WHERE idcategoria = $id";
 
     $resultados = mysqli_query($conexao, $sql);
 
