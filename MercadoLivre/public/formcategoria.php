@@ -45,12 +45,19 @@ if (isset($_GET['id'])) {
 
         Cadastrar Categoria <br><br>
 
-        <form action="salvarcategoria.php?id=<?php echo $id;?>" method="post">
+        <form action="salvarcategoria.php?id=<?php echo $id;?>" method="POST">
             
-            <input type="text" categoria="categoria" value="<?php echo $categoria; ?>" placeholder="Nome da Categoria" > <br><br>
+            <input type="text" name="categoria" value="<?php echo $categoria; ?>" placeholder="Nome da Categoria" > <br><br>
 
             <div class="botao">
 
                 <input type="submit" value="<?php echo $botao; ?>">
 
             </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
