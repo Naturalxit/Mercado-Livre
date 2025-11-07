@@ -48,7 +48,8 @@ function confirmarDeletar(id) {
 </thead>
 <tbody>
 <?php if (!empty($clientes)) : ?>
-    <?php foreach($clientes as $cliente) : ?>
+    <?php foreach($clientes as $cliente):{?>
+        
     <tr>
         <td><img src="<?php echo (!empty($cliente['foto'])) ? '../fotos_clientes/'.$cliente['foto'] : './img/user.png'; ?>" alt="Foto do Cliente"></td>
         <td><?php echo htmlspecialchars($cliente['nome']); ?></td>
@@ -59,7 +60,7 @@ function confirmarDeletar(id) {
             <button class="btn btn-deletar" onclick="confirmarDeletar(<?php echo $cliente['idcliente']; ?>)">Deletar</button>
         </td>
     </tr>
-    <?php endforeach; ?>
+    <?php } ?>
 <?php else: ?>
 <tr><td colspan="5">Nenhum cliente cadastrado.</td></tr>
 <?php endif; ?>
