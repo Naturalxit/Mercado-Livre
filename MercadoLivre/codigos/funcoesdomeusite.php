@@ -94,7 +94,27 @@ function pesquisarClientePorUsuario($conexao, $idusuario) {
     return $cliente;
 }
 
+function listarClientes($conexao) {
+    $sql = "SELECT * FROM tb_cliente";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $lista = [];
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $lista[] = $row;
+    }
+    mysqli_stmt_close($comando);
+    return $lista;
+}
 
+function deletarCliente($conexao, $idcliente) {
+    $sql = "DELETE FROM tb_cliente WHERE idcliente=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    return $funcionou;
+}
 
 // ===================== PRODUTO =====================
 function salvarProduto($conexao, $nome, $tipo, $estado, $valor, $estoque, $descricao, $status, $categoria) {

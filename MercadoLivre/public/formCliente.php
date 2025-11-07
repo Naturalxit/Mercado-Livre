@@ -7,7 +7,7 @@
 
         $id = $_GET['id'];
         
-        $cliente = pesquisarCliente($conexao, $id);
+        $cliente = pesquisarClientePorUsuario($conexao, $id);
         $nome = $cliente['nome'];
         $cpf = $cliente['cpf'];
         $endereco = $cliente['endereco'];
@@ -54,6 +54,7 @@
 
         Endereço: <br>
         <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
+        
 
         <input type="submit" value="<?php echo $botao; ?>">
 
