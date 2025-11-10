@@ -158,18 +158,24 @@ body { background-color: #c6e2e2; }
 <?php
 $result = $db->query("SELECT * FROM tb_produto ORDER BY idproduto DESC");
 while ($p = $result->fetch_assoc()) {
-    // Se não houver foto, usar padrão
     $fotoProduto = !empty($p['foto']) ? $p['foto'] : 'padrao.jpg';
 ?>
-    <div class="col-md-3 mb-4">
-      <div class="card shadow-sm">
-        <img src="fotos/<?php echo $fotoProduto; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($p['nome']); ?>">
-        <div class="card-body text-center">
-          <h5><?php echo htmlspecialchars($p['nome']); ?></h5>
-          <p class="text-success fw-bold">R$ <?php echo number_format($p['valor'], 2, ",", "."); ?></p>
-        </div>
-      </div>
+<div class="col-md-3 mb-4">
+  <div class="card shadow-sm">
+    <img src="fotos/<?php echo $fotoProduto; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($p['nome']); ?>">
+    <div class="card-body text-center">
+      <h5><?php echo htmlspecialchars($p['nome']); ?></h5>
+      <p class="text-success fw-bold">R$ <?php echo number_format($p['valor'], 2, ",", "."); ?></p>
+
+      <form method="post" action="adicionar_carrinho.php">
+        <input type="hidden" name="idproduto" value="<?php echo $p['idproduto']; ?>">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
+        </button>
+      </form>
     </div>
+  </div>
+</div>
 <?php } ?>
 
 </div>
