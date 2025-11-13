@@ -15,8 +15,9 @@ require_once "../controle/conexao.php";
   <h2 class="text-center mb-4">Carrinho de Compras</h2>
 
   <?php
+  // Se o carrinho estiver vazio
   if (empty($_SESSION['carrinho'])) {
-      echo "<div class='alert alert-warning text-center'>Seu carrinho está vazio.</div>";
+      echo "<div class='alert alert-warning text-center shadow-sm'>Seu carrinho está vazio.</div>";
   } else {
       echo "<table class='table table-bordered bg-white shadow-sm'>";
       echo "<thead class='table-secondary'>
@@ -31,23 +32,34 @@ require_once "../controle/conexao.php";
             </thead><tbody>";
 
       $totalGeral = 0;
+
       foreach ($_SESSION['carrinho'] as $item) {
           $subtotal = $item['valor'] * $item['quantidade'];
           $totalGeral += $subtotal;
+
           echo "<tr>
-                  <td><img src='fotos/{$item['foto']}' width='70'></td>
+                  <td><img src='fotos/{$item['foto']}' width='70' height='70' class='rounded'></td>
                   <td>{$item['nome']}</td>
                   <td>{$item['quantidade']}</td>
                   <td>R$ " . number_format($item['valor'], 2, ',', '.') . "</td>
                   <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
-                  <td><a href='remover_carrinho.php?id={$item['id']}' class='btn btn-danger btn-sm'>Remover</a></td>
+                  <td>
+                    <a href='remover_carrinho.php?id={$item['id']}' class='btn btn-danger btn-sm'>
+                      Remover
+                    </a>
+                  </td>
                 </tr>";
       }
 
       echo "</tbody></table>";
-      echo "<h4 class='text-end'>Total: R$ " . number_format($totalGeral, 2, ',', '.') . "</h4>";
-      echo "<div class='text-end mt-3'>
-              <a href='finalizarcompra.php' class='btn btn-success btn-lg'>Finalizar Compra</a>
+
+      echo "<h4 class='text-end fw-bold'>Total: R$ " . number_format($totalGeral, 2, ',', '.') . "</h4>";
+
+      // Botão para finalizar compra
+      echo "<div class='text-end mt-4'>
+              <form action='finalizar.php' method='POST'>
+                <button type='submit' class='btn btn-success btn-lg'>Finalizar Compra</button>
+              </form>
             </div>";
   }
   ?>
